@@ -5,7 +5,7 @@
 #define FOR(i, a, b) for(int i=a; i<b; i++)
 #define REP(i, n) FOR(i, 0, n)
 
-const long long MAXN = 500001;
+const long long MAXN = 1000001;
 
 using namespace std;
 
