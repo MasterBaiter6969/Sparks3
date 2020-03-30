@@ -6,6 +6,7 @@
 #define REP(i, n) FOR(i, 0, n)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const long long MAXN = 1000001;
 
 using namespace std;
@@ -111,6 +112,8 @@ int main()
     }
 
 =======
+=======
+>>>>>>> 16746f1883d0fcfaed9277fbfb860ea0eee7d2f2
 const long long MAXN = 500001;
 
 using namespace std;
@@ -185,6 +188,9 @@ int main()
     }
 
     else cout << "Unable to open file";
+<<<<<<< HEAD
+>>>>>>> 16746f1883d0fcfaed9277fbfb860ea0eee7d2f2
+=======
 >>>>>>> 16746f1883d0fcfaed9277fbfb860ea0eee7d2f2
 
     return 0;
