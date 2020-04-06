@@ -1,6 +1,12 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <fstream>
 #include "MeteorDatabase.h"
+=======
+#include <vector>
+#include <fstream>
+#include <string>
+>>>>>>> 152432ed337cd0ed0b750e2ff651a0d2a08b8081
 #define FOR(i, a, b) for(int i=a; i<b; i++)
 #define REP(i, n) FOR(i, 0, n)
 
@@ -12,7 +18,10 @@ vector<vector<string>> csvfile;
 vector<string> vs;
 string line;
 int databaseSelect; // CAMS = 1, GMN = 2, EDMOND = 3, SONATACO = 4
+<<<<<<< HEAD
 Meteor_Database MeteorInfo;
+=======
+>>>>>>> 152432ed337cd0ed0b750e2ff651a0d2a08b8081
 
 void CAMSPushB(int rowNum, int columnNum, string data) {
     switch (columnNum) {
@@ -97,12 +106,17 @@ void CAMSread() {
 int main()
 {
     csvfile.insert(csvfile.begin(), MAXN, vs);
+<<<<<<< HEAD
     cout << "Input desired database number (1 for CAMS, 2 for GMN, 3 for EDMOND, 4 for SONATACO):\n";
+=======
+    cout << "Input desired database number (1 for CAMS, 2 for GMN, 3 for EDMOND, 4 for SONATACO:\n";
+>>>>>>> 152432ed337cd0ed0b750e2ff651a0d2a08b8081
 
     cin >> databaseSelect;
 
     switch (databaseSelect) {
         case 1:
+<<<<<<< HEAD
         {
             CAMSread();
             Meteor_Database temp_MeteorFile("CAMS", csvfile);
@@ -114,3 +128,14 @@ int main()
     }
     return 0;
 }
+=======
+            CAMSread();
+            break;
+        default:
+            break;
+    }
+
+
+    return 0;
+}
+>>>>>>> 152432ed337cd0ed0b750e2ff651a0d2a08b8081
