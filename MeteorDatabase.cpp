@@ -1,6 +1,5 @@
 #include "MeteorDatabase.h"
 
-<<<<<<< HEAD
 void Meteor_Database::add(Meteor_Data _Meteor_Dat)
 {
 	meteor_vector.push_back(_Meteor_Dat);
@@ -27,7 +26,7 @@ Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _csvfi
 		add(_Meteor_Dat);
 	}
 }
-=======
+
 Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _csvfile)
 {
 	database = _database;
@@ -42,4 +41,3 @@ void Meteor_Database::add(Meteor_Data _Meteor_Dat)
 {
 	meteor_vector.push_back(_Meteor_Dat);
 }
->>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662

@@ -11,7 +11,6 @@ vector<string> line_seperated;
 string line;
 int databaseSelect; // CAMS = 1, GMN = 2, EDMOND = 3, SONATACO = 4
 Meteor_Database MeteorInfo;
-<<<<<<< HEAD
 
 void output1() {
     for (vector<vector<string>>::iterator it = csvfile.begin(); it != csvfile.end(); ++it) {
@@ -29,8 +28,6 @@ void output1() {
         cout << '\n';
     }
 }
-=======
->>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662
 
 void output2() {
     for (vector<Meteor_Data>::iterator it = MeteorInfo.meteor_vector.begin(); it != MeteorInfo.meteor_vector.end(); ++it) {
@@ -76,14 +73,14 @@ void CAMSread() {
     else cout << "Unable to open input file.\n";
 }
 
-<<<<<<< HEAD
+
 void GMNread() {
-=======
+}
+
 int main()
 {
     csvfile.insert(csvfile.begin(), MAXN, vs);
     cout << "Input desired database number (1 for CAMS, 2 for GMN, 3 for EDMOND, 4 for SONATACO):\n";
->>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662
 
 }
 
@@ -106,7 +103,7 @@ void program()
             CAMSread();
             Meteor_Database temp_MeteorFile("CAMS", csvfile);
             MeteorInfo = temp_MeteorFile;
-<<<<<<< HEAD
+
             break;
         }
         case 2:
@@ -128,14 +125,13 @@ void program()
             SONATACOread();
             Meteor_Database temp_MeteorFile("SONATACO", csvfile);
             MeteorInfo = temp_MeteorFile;
-=======
->>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662
+
             break;
         }
         default:
             break;
     }
-<<<<<<< HEAD
+
     cout << "Run complete.\n";
 }
 
@@ -172,7 +168,6 @@ int main()
         }
         else cout << "Unknown command. Please try again.\n";
     }
-=======
->>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662
+
     return 0;
 }
