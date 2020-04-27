@@ -2,6 +2,7 @@
 #include "MeteorData.h"
 using namespace std;
 
+<<<<<<< HEAD
 void ltrim(string s) {
     s.erase(s.begin(), find_if(s.begin(), s.end(), [](int ch) {
         return !isspace(ch);
@@ -32,6 +33,11 @@ Meteor_Data::Meteor_Data(string _database, string _meteor_number, string _date, 
     trim(_node);
     database = _database;
     meteor_number = stoi(_meteor_number);
+=======
+Meteor_Data::Meteor_Data(string _database, int _meteor_number, string _date, string _time, string _beta_heliocentric, string _solar_longitude, string _excentricity, string _inclination, string _peri, string _node) {
+    database = _database;
+    meteor_number = _meteor_number;
+>>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662
     date = _date;
     time = _time;
     beta_heliocentric = stod(_beta_heliocentric);

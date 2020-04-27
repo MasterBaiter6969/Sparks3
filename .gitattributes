@@ -1,0 +1,2 @@
+*.txt filter=lfs diff=lfs merge=lfs -text
+CAMS_summary_2010to2016.txt filter=lfs diff=lfs merge=lfs -text
