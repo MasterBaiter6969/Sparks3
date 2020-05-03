@@ -1,45 +1,51 @@
 #include "MeteorDatabase.h"
+#include <iostream>
 
-<<<<<<< HEAD
 void Meteor_Database::add(Meteor_Data _Meteor_Dat)
 {
 	meteor_vector.push_back(_Meteor_Dat);
 }
 
 
-Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _csvfile)
+Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _vectorfile)
 {
 	database = _database;
-	for (int i = 0; i < _csvfile.size(); ++i) {
-		string _meteor_number, _date, _time, _beta_heliocentric, _solar_longitude, _excentricity, _inclination, _peri, _node;
+	for (int i = 0; i < _vectorfile.size(); ++i) {
+		string _meteor_number, _datetime, _q, _solar_longitude, _excentricity, _inclination, _peri, _node;
 		if (database == "CAMS") {
-			_meteor_number = _csvfile[i][0];
-			_date = _csvfile[i][1];
-			_time = _csvfile[i][2];
-			_beta_heliocentric = _csvfile[i][3];
-			_solar_longitude = _csvfile[i][4];
-			_excentricity = _csvfile[i][5];
-			_inclination = _csvfile[i][6];
-			_peri = _csvfile[i][7];
-			_node = _csvfile[i][8];
+			_meteor_number = _vectorfile[i][0];
+			_datetime = _vectorfile[i][1] + ' ' + _vectorfile[i][2];
+			_solar_longitude = _vectorfile[i][3];
+			_q = _vectorfile[i][4];
+			_excentricity = _vectorfile[i][5];
+			_inclination = _vectorfile[i][6];
+			_peri = _vectorfile[i][7];
+			_node = _vectorfile[i][8];
 		}
-		Meteor_Data _Meteor_Dat(_database, _meteor_number, _date, _time, _beta_heliocentric, _solar_longitude, _excentricity, _inclination, _peri, _node);
+		else if (database == "GMN") {
+			_meteor_number = _vectorfile[i][0];
+			_datetime = _vectorfile[i][1];
+			_solar_longitude = _vectorfile[i][2];
+			_excentricity = _vectorfile[i][3];
+			_inclination = _vectorfile[i][4];
+			_peri = _vectorfile[i][5];
+			_node = _vectorfile[i][6];
+			_q = _vectorfile[i][7];
+		}
+		else if (database == "EDMOND" || database == "SonataCo") {
+			_meteor_number = _vectorfile[i][0];
+			_datetime = _vectorfile[i][1];
+			_solar_longitude = _vectorfile[i][2];
+			_q = _vectorfile[i][3];
+			_excentricity = _vectorfile[i][4];
+			_peri = _vectorfile[i][5];
+			_node = _vectorfile[i][6];
+			_inclination = _vectorfile[i][7];
+		}
+		else {
+			cout << "Wrong database inputted. Please try again.\n";
+		}
+		Meteor_Data _Meteor_Dat(_database, _meteor_number, _datetime, _q, _solar_longitude, _excentricity, _inclination, _peri, _node);
 		add(_Meteor_Dat);
 	}
 }
-=======
-Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _csvfile)
-{
-	database = _database;
-	int n = _csvfile.size();
-	for (int i = 0; i < n; ++i) {
-		Meteor_Data _Meteor_Dat(_database, stoi(_csvfile[i][0]), _csvfile[i][1], _csvfile[i][2], _csvfile[i][3], _csvfile[i][4], _csvfile[i][5], _csvfile[i][6], _csvfile[i][7], _csvfile[i][8]);
-		add(_Meteor_Dat);
-	}
-}
-
-void Meteor_Database::add(Meteor_Data _Meteor_Dat)
-{
-	meteor_vector.push_back(_Meteor_Dat);
-}
->>>>>>> 106d8b02e9c987b5d8f16125d30e70aacc95a662
