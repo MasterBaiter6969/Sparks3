@@ -77,8 +77,6 @@ void fileRead() {
     else cout << "Unable to open input file.\n";
 }
 
-<<<<<<< HEAD
-
 void GMNread() {
 }
 
@@ -97,14 +95,12 @@ void SONATACOread() {
 
 }
 
-=======
->>>>>>> e8b1e013f1dc39f099116042c85487cd4d71a928
 void program()
 {
     cout << "Running program...\n";
     cout << "Input database name:\n";
     cin >> databaseSelect;
-<<<<<<< HEAD
+
     switch (databaseSelect) {
         case 1:
         {
@@ -140,11 +136,9 @@ void program()
             break;
     }
 
-=======
     fileRead();
     Meteor_Database temp_MeteorFile(databaseSelect, vectorFile);
     MeteorInfo = temp_MeteorFile;
->>>>>>> e8b1e013f1dc39f099116042c85487cd4d71a928
     cout << "Run complete.\n";
 }
 
@@ -181,9 +175,5 @@ int main()
         }
         else cout << "Unknown command. Please try again.\n";
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> e8b1e013f1dc39f099116042c85487cd4d71a928
     return 0;
 }
