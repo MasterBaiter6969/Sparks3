@@ -1,11 +1,20 @@
 #include "MeteorDatabase.h"
-#include <algorithm>
+#include <iostream>
 
 void Meteor_Database::add(Meteor_Data _Meteor_Dat)
 {
 	meteor_vector.push_back(_Meteor_Dat);
 }
 
+bool compareTime(Meteor_Data Meteor1, Meteor_Data Meteor2) {
+	int Meteor1Time = Meteor1.absTime;
+	int Meteor2Time = Meteor2.absTime;
+	return (Meteor1Time < Meteor2Time);
+}
+
+void sortByTime(Meteor_Data* meteor_vector_begin, Meteor_Data* meteor_vector_end) {
+	sort(meteor_vector_begin, meteor_vector_end, compareTime);
+}
 
 Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _vectorfile)
 {
@@ -48,14 +57,6 @@ Meteor_Database::Meteor_Database(string _database, vector<vector<string>> _vecto
 		Meteor_Data _Meteor_Dat(_database, _meteor_number, _datetime, _q, _solar_longitude, _excentricity, _inclination, _peri, _node);
 		add(_Meteor_Dat);
 	}
+	sortByTime(meteor_vector.begin(), meteor_vector.end());
 }
 
-bool compareTime(Meteor_Data Meteor1, Meteor_Data Meteor2){
-  int Meteor1Time = Meteor1.absTime; 
-  int Meteor2Time = Meteor2.absTime;
-  return (Meteor1Time < Meteor2Time);
-}
-
-void sortByTime(Meteor_Data* meteor_vector_begin, Meteor_Data* meteor_vector_end){
-  sort(meteor_vector_begin, meteor_vector_end, compareTime);
-}

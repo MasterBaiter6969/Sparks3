@@ -77,65 +77,11 @@ void fileRead() {
     else cout << "Unable to open input file.\n";
 }
 
-void GMNread() {
-}
-
-int main()
-{
-    csvfile.insert(csvfile.begin(), MAXN, vs);
-    cout << "Input desired database number (1 for CAMS, 2 for GMN, 3 for EDMOND, 4 for SONATACO):\n";
-
-}
-
-void EDMONDread() {
-
-}
-
-void SONATACOread() {
-
-}
-
 void program()
 {
     cout << "Running program...\n";
     cout << "Input database name:\n";
     cin >> databaseSelect;
-
-    switch (databaseSelect) {
-        case 1:
-        {
-            CAMSread();
-            Meteor_Database temp_MeteorFile("CAMS", csvfile);
-            MeteorInfo = temp_MeteorFile;
-
-            break;
-        }
-        case 2:
-        {
-            GMNread();
-            Meteor_Database temp_MeteorFile("GMN", csvfile);
-            MeteorInfo = temp_MeteorFile;
-            break;
-        }
-        case 3:
-        {
-            EDMONDread();
-            Meteor_Database temp_MeteorFile("EDMOND", csvfile);
-            MeteorInfo = temp_MeteorFile;
-            break;
-        }
-        case 4:
-        {
-            SONATACOread();
-            Meteor_Database temp_MeteorFile("SONATACO", csvfile);
-            MeteorInfo = temp_MeteorFile;
-
-            break;
-        }
-        default:
-            break;
-    }
-
     fileRead();
     Meteor_Database temp_MeteorFile(databaseSelect, vectorFile);
     MeteorInfo = temp_MeteorFile;
