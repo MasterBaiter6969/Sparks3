@@ -1,5 +1,3 @@
-#include <iostream>
-#include <fstream>
 #include "MeteorDatabase.h"
 #define FOR(i, a, b) for(int i=a; i<b; i++)
 #define REP(i, n) FOR(i, 0, n)
@@ -7,8 +5,7 @@
 using namespace std;
 
 vector<vector<string>> vectorFile;
-vector<string> line_seperated;
-string line, databaseSelect, databaseName;
+string databaseName;
 Meteor_Database MeteorInfo;
 
 void output1() {
@@ -43,47 +40,12 @@ void output2() {
     }
 }
 
-void parse() {
-    size_t prevFound = 0, Found = line.find(';');
-    int columnNum = 1;
-    int rowNum = stoi(line.substr(prevFound, Found - prevFound));
-    rowNum--;
-    line_seperated.push_back(to_string(rowNum));
-    while (line.find(";", Found + 1) <= line.size()) {
-        prevFound = Found;
-        Found = line.find(";", Found + 1);
-        string data = line.substr(prevFound + 1, Found - prevFound - 1);
-        if (databaseName == "CAMS" && (columnNum == 2 || columnNum == 3 || columnNum == 57 || columnNum == 59 || columnNum == 64 || columnNum == 66 || columnNum == 68 || columnNum == 70))line_seperated.push_back(data);
-        else if (databaseName == "GMN" && (columnNum == 1 || columnNum == 4 || columnNum == 24 || columnNum == 26 || columnNum == 28 || columnNum == 30 || columnNum == 34))line_seperated.push_back(data);
-        else if ((databaseName == "EDMOND" || databaseName == "SonataCo") && (columnNum == 2 || columnNum == 4 || columnNum == 19 || columnNum == 20 || columnNum == 22 || columnNum == 23 || columnNum == 24))line_seperated.push_back(data);
-        columnNum++;
-    }
-    vectorFile.push_back(line_seperated);
-}
-
-void fileRead() {
-    cout << "Input file name:\n";
-    cin >> databaseName;
-    ifstream file(databaseName);
-    if (file.is_open())
-    {
-        while (getline(file, line))
-        {
-            parse();
-            line_seperated.clear();
-        }
-        file.close();
-    }
-    else cout << "Unable to open input file.\n";
-}
-
 void program()
 {
     cout << "Running program...\n";
     cout << "Input database name:\n";
-    cin >> databaseSelect;
-    fileRead();
-    Meteor_Database temp_MeteorFile(databaseSelect, vectorFile);
+    cin >> databaseName;
+    Meteor_Database temp_MeteorFile(databaseName, vectorFile);
     MeteorInfo = temp_MeteorFile;
     cout << "Run complete.\n";
 }
