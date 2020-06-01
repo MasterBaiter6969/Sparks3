@@ -4,7 +4,8 @@ using namespace std;
 class Meteor_Data {
 public:
     string database;
-    int meteor_number, absTime;
+    long meteor_number;
+    double absTime;
     string datetime;
     double q;
     double solar_longitude;

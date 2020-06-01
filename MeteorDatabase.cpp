@@ -6,15 +6,18 @@ string  line, fileName;
 vector<string> line_seperated;
 
 void parse(string databaseName, vector<vector<string>> vectorFile) {
-	size_t prevFound = 0, Found = line.find(';');
+	char delimiter;
+	if (databaseName == "EDMOND" || databaseName == "SonataCo")delimiter = ',';
+	else delimiter = ';';
+	size_t prevDelimiterPos = 0, delimiterPos = line.find(delimiter);
 	int columnNum = 1;
-	int rowNum = stoi(line.substr(prevFound, Found - prevFound));
+	int rowNum = stoi(line.substr(prevDelimiterPos, delimiterPos - prevDelimiterPos));
 	rowNum--;
 	line_seperated.push_back(to_string(rowNum));
-	while (line.find(";", Found + 1) <= line.size()) {
-		prevFound = Found;
-		Found = line.find(";", Found + 1);
-		string data = line.substr(prevFound + 1, Found - prevFound - 1);
+	while (line.find(delimiter, delimiterPos + 1) <= line.size()) {
+		prevDelimiterPos = delimiterPos;
+		delimiterPos = line.find(delimiter, delimiterPos + 1);
+		string data = line.substr(prevDelimiterPos + 1, delimiterPos - prevDelimiterPos - 1);
 		if (databaseName == "CAMS" && (columnNum == 2 || columnNum == 3 || columnNum == 57 || columnNum == 59 || columnNum == 64 || columnNum == 66 || columnNum == 68 || columnNum == 70))line_seperated.push_back(data);
 		else if (databaseName == "GMN" && (columnNum == 1 || columnNum == 4 || columnNum == 24 || columnNum == 26 || columnNum == 28 || columnNum == 30 || columnNum == 34))line_seperated.push_back(data);
 		else if ((databaseName == "EDMOND" || databaseName == "SonataCo") && (columnNum == 2 || columnNum == 4 || columnNum == 19 || columnNum == 20 || columnNum == 22 || columnNum == 23 || columnNum == 24))line_seperated.push_back(data);
